@@ -42,6 +42,8 @@ class DashboardPostController extends Controller
             'nama' => 'required|max:255',
             'jurusan' => 'required|max:100'
         ]);
+
+        # membuat aksi simpan
     }
 
     /**
