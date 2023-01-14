@@ -11,18 +11,18 @@
         @csrf
         <div class="mb-3">
           <label for="nim" class="form-label">NIM</label>
-          <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" id="nim" required autofocus>
+          <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" id="nim" required autofocus value="{{ old('nim') }}">
         <div class="mb-3">
           <label for="nama" class="form-label">Nama</label>
-          <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama">
+          <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" value="{{ old('nama') }}">
         </div>
         <div class="mb-3">
           <label for="jurusan" class="form-label">Jurusan</label>
-          <input type="text" class="form-control" id="jurusan">
+          <input type="text" name="jurusan" class="form-control" id="jurusan" value="{{ old('jurusan') }}">
         </div>
         <div class="mb-3">
           <label for="tgllahir" class="form-label">Tanggal Lahir</label>
-          <input type="date" class="form-control" id="tgllahir">
+          <input type="date" class="tgllahir @error('tgllahir') is-invalid @enderror" name="tgllahir" class="form-control" id="tgllahir" value="{{ old('tgllahir') }}">
         </div>
         <div class="container">
             <div class="row">
@@ -31,7 +31,7 @@
                     <input type="radio" name="jk" value="perempuan" class="mx-1" id="jk"> Perempuan
                 </div>
             </div>
-        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        <button type="submit" class="btn btn-primary mt-3" value="save">Submit</button>
       </form>
 </div>
 

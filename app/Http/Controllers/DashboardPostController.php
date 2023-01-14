@@ -40,10 +40,16 @@ class DashboardPostController extends Controller
         $validatedData = $request->validate([
             'nim' => 'required|min:11',
             'nama' => 'required|max:255',
-            'jurusan' => 'required|max:100'
+            'jurusan' => 'required|max:100',
+            'tgllahir' => 'required',
+            // 'jk' => 'required'
         ]);
 
         # membuat aksi simpan
+        $validatedData['user_id'] = auth()->user()->id;
+
+        Post::create($validatedData);
+        return redirect('/dashboard/posts')->with('success','Data anda berhasil di input! ');
     }
 
     /**
@@ -88,6 +94,7 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
     }
 }
