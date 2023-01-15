@@ -94,7 +94,15 @@ class DashboardPostController extends Controller
      */
     public function destroy(Post $post)
     {
-        Post::destroy($post->id);
-        return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
+
+        $id = $post->input('id');
+        Post::find($id)->delete();
+
+        // Post::destroy($post->id);
+        // return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
+
+        // gagal
+        // $post->delete();
+        // return redirect()->route('dashboard.index')->with('success','Data anda berhasil di hapus');
     }
 }

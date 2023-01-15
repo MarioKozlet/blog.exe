@@ -27,8 +27,8 @@
           <td>{{ $post->tgllahir }}</td>
           <td>{{ $post->jk }}</td>
           <td>
-            <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="d-inline">
-                @method ('delete')
+            <form action="/dashboard/posts" method="post" class="d-inline">
+                @method('delete')
                 @csrf
                 <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x"></span></button>
             </form>
