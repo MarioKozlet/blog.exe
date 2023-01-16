@@ -15,9 +15,18 @@ return new class extends Migration
     {
         Schema::create('aktivitas', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id');
             $table->string('nama_aktivitas');
             $table->date('tgl');
             $table->string('tempat');
+            $table->enum('pj', [
+                'Irman Aras S.Sos',
+                'Inceh ashari S.Kom',
+                'Yasir Sensei S.Kom',
+                'Haedar Ridha SH'
+            ]);
+            $table->string('tanggal');
+            $table->integer('biaya');
             $table->timestamps();
         });
     }
