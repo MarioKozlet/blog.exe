@@ -11,7 +11,7 @@
         @csrf
         <div class="mb-3">
           <label for="nim" class="form-label">NIM</label>
-          <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror" id="nim" required autofocus value="{{ old('nim') }}">
+          <input type="text" name="nim" class="form-control @error('nim') is-invalid @enderror max:11" maxlength="11" id="nim" required autofocus value="{{ old('nim') }}">
         <div class="mb-3">
           <label for="nama" class="form-label">Nama</label>
           <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" value="{{ old('nama') }}">
@@ -27,8 +27,8 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <input type="radio" name="jk" value="lakilaki" class="mx-1" id="jk"> Laki Laki
-                    <input type="radio" name="jk" value="perempuan" class="mx-1" id="jk"> Perempuan
+                    <input type="radio" name="jk" value="Laki-laki" class="mx-1" id="jk" value="{{ old('jk') }}"> Laki-Laki
+                    <input type="radio" name="jk" value="Perempuan" class="mx-1" id="jk" value="{{ old('jk') }}"> Perempuan
                 </div>
             </div>
         <button type="submit" class="btn btn-primary mt-3" value="save">Submit</button>

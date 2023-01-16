@@ -42,7 +42,7 @@ class DashboardPostController extends Controller
             'nama' => 'required|max:255',
             'jurusan' => 'required|max:100',
             'tgllahir' => 'required',
-            // 'jk' => 'required'
+            'jk' => 'required'
         ]);
 
         # membuat aksi simpan
@@ -71,7 +71,9 @@ class DashboardPostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.posts.edit', [
+            'post' => $post
+        ]);
     }
 
     /**
@@ -83,7 +85,18 @@ class DashboardPostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validatedData = $request->validate([
+            'nim' => 'required|min:11',
+            'nama' => 'required|max:255',
+            'jurusan' => 'required|max:100',
+            'tgllahir' => 'required',
+            'jk' => 'required'
+        ]);
+        $validatedData['user_id'] = auth()->user()->id;
+
+        // dd($request);
+        Post::where('id', $post->id)->update($validatedData);
+        return redirect('/dashboard/posts')->with('success','Data anda berhasil di edit! ');
     }
 
     /**
@@ -92,17 +105,26 @@ class DashboardPostController extends Controller
      * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
+
     public function destroy(Post $post)
     {
 
-        $id = $post->input('id');
-        Post::find($id)->delete();
+        // $id = $post->input('id');
+        // Post::find($id)->delete();
 
-        // Post::destroy($post->id);
-        // return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
+        Post::destroy($post->id);
+        return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
 
-        // gagal
-        // $post->delete();
-        // return redirect()->route('dashboard.index')->with('success','Data anda berhasil di hapus');
-    }
+    //     $delete = Post::find('id');
+    //     return redirect('/dashboard/posts')->with('success','Data anda berhasil di hapus!');
+    // }
+
+    // public function cehckSlug(Request $request)
+    // {
+    //     // $slug = SlugService::createSlug(Post::class, 'slug', $request->title);
+    //     // retur response()->json['slug' => $slug];
+    // }
+
+}
+
 }

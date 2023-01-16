@@ -14,7 +14,7 @@
     <!-- My Style -->
     <link rel="stylesheet" href="/css/style-login.css">
 
-    <title>Halamn {{ $title }}</title>
+    <title>Halaman {{ $title }}</title>
   </head>
   <body>
 

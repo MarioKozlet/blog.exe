@@ -27,12 +27,12 @@
           <td>{{ $post->tgllahir }}</td>
           <td>{{ $post->jk }}</td>
           <td>
-            <form action="/dashboard/posts" method="post" class="d-inline">
+              <a href="/dashboard/posts/{{ $post->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+              <form action="/dashboard/posts/{{ $post->id }}" method="post" class="d-inline">
                 @method('delete')
                 @csrf
-                <button type="submit" class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x"></span></button>
-            </form>
-            <a href="" class="badge bg-warning"><span data-feather="edit"></span></a>
+            <button class="badge bg-danger border-0" onclick="return confirm('Are you sure?')"><span data-feather="x"></span></button>
+              </form>
         </td>
         </tr>
         @endforeach
