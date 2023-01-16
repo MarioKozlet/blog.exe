@@ -12,6 +12,13 @@
             <span data-feather="file-text" class="align-text-bottom"></span>
             Isi data Mahasiswa
           </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('dashboard/aktivitas*')?'active':'' }}" href="/dashboard/aktivitas">
+            <span data-feather="file-text" class="align-text-bottom"></span>
+            Aktivitas
+          </a>
+        </li>
       </ul>
 
 

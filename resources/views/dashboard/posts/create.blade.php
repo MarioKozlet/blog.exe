@@ -24,13 +24,17 @@
           <label for="tgllahir" class="form-label">Tanggal Lahir</label>
           <input type="date" class="tgllahir @error('tgllahir') is-invalid @enderror" name="tgllahir" class="form-control" id="tgllahir" value="{{ old('tgllahir') }}">
         </div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <input type="radio" name="jk" value="Laki-laki" class="mx-1" id="jk" value="{{ old('jk') }}"> Laki-Laki
-                    <input type="radio" name="jk" value="Perempuan" class="mx-1" id="jk" value="{{ old('jk') }}"> Perempuan
+        <div class="mb-3">
+            Jenis Kelamin
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <input type="radio" name="jk" value="Laki-laki" class="mx-1" id="jk" value="{{ old('jk') }}"> Laki-Laki
+                        <input type="radio" name="jk" value="Perempuan" class="mx-1" id="jk" value="{{ old('jk') }}"> Perempuan
+                        </div>
+                    </div>
                 </div>
-            </div>
+        </div>
         <button type="submit" class="btn btn-primary mt-3" value="save">Submit</button>
       </form>
 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AktivitasController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -55,5 +56,7 @@ Route::get('/dashboard ', function()
 })->middleware('auth');
 
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/aktivitas', AktivitasController::class)->middleware('auth');
 
 // Route::get('/delete/{id}', DashboardPostController::class, 'delete')->name('delete');

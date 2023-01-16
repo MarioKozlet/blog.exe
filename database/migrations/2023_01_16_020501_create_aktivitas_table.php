@@ -25,7 +25,6 @@ return new class extends Migration
                 'Yasir Sensei S.Kom',
                 'Haedar Ridha SH'
             ]);
-            $table->string('tanggal');
             $table->integer('biaya');
             $table->timestamps();
         });
